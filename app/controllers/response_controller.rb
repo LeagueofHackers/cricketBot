@@ -1,7 +1,7 @@
 require 'wrest'
 class ResponseController < ActionController::Base
   def create
-    key = "imVH7HUAqSmshSlQIW3gmE0cchj3p1PFH3BjsnkfXntHtWKXt3"
+    key = "MashApeKey"
     url = 'https://dev132-cricket-live-scores-v1.p.mashape.com'
 
     match_details = ''
@@ -25,7 +25,7 @@ class ResponseController < ActionController::Base
         match_details  = liveMatches(matches).compact.join("\n")
         end
         body = {
-            "text": match_details
+            "text" => match_details.to_s
         }.to_json
 
         make_delayed_response(body)
